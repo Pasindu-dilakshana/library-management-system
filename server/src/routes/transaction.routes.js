@@ -4,7 +4,7 @@ import {
   issueBook,
   returnBook
 } from "../controllers/transaction.controller.js";
-import { authenticate, authorize } from "../middleware/auth.middleware.js";
+import { authenticate } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
@@ -31,7 +31,7 @@ const router = Router();
  */
 router.use(authenticate);
 router.get("/", getTransactions);
-router.post("/issue", authorize("admin"), issueBook);
-router.patch("/:transactionId/return", authorize("admin"), returnBook);
+router.post("/issue", issueBook);
+router.patch("/:transactionId/return", returnBook);
 
 export default router;

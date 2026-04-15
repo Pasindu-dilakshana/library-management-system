@@ -19,11 +19,3 @@ export const authenticate = (request, _response, next) => {
     throw new AppError("Invalid or expired token", StatusCodes.UNAUTHORIZED);
   }
 };
-
-export const authorize = (...roles) => (request, _response, next) => {
-  if (!roles.includes(request.user.role)) {
-    throw new AppError("You do not have access to this resource", StatusCodes.FORBIDDEN);
-  }
-
-  next();
-};

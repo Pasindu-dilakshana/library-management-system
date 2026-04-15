@@ -27,7 +27,7 @@ export function DashboardPage() {
             {[
               ["Most borrowed", "The Alchemist"],
               ["Top category", "Software Engineering"],
-              ["Active admins", "3 online now"]
+              ["Active staff", "3 online now"]
             ].map(([label, value]) => (
               <div
                 key={label}

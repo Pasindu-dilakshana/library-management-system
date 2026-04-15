@@ -14,7 +14,7 @@ export function Navbar() {
             Welcome back
           </p>
           <h1 className="text-2xl font-semibold">
-            {user?.name || "Library Admin"}
+            {user?.name || "Library User"}
           </h1>
         </div>
 
@@ -43,7 +43,7 @@ export function Navbar() {
           </button>
 
           <button type="button" onClick={logout} className="btn-primary">
-            {user?.role === "admin" ? "Admin" : "Member"} Logout
+            Logout
           </button>
         </div>
       </div>

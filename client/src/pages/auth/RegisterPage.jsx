@@ -5,11 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 export function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState("");
-  const { register, handleSubmit, formState } = useForm({
-    defaultValues: {
-      role: "member"
-    }
-  });
+  const { register, handleSubmit, formState } = useForm();
   const auth = useAuth();
   const navigate = useNavigate();
 
@@ -33,7 +29,7 @@ export function RegisterPage() {
         </p>
         <h2 className="mt-3 text-3xl font-semibold">Create your account</h2>
         <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          Register as a member or admin for your library workspace.
+          Create your account to start managing your library workspace.
         </p>
       </div>
 
@@ -54,10 +50,6 @@ export function RegisterPage() {
           placeholder="Password"
           {...register("password", { required: true, minLength: 6 })}
         />
-        <select className="input" {...register("role", { required: true })}>
-          <option value="member">Member</option>
-          <option value="admin">Admin</option>
-        </select>
         {errorMessage ? (
           <p className="text-sm text-rose-500">{errorMessage}</p>
         ) : null}

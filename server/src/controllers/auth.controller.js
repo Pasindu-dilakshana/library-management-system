@@ -8,12 +8,11 @@ const sanitizeUser = (user) => ({
   id: user._id,
   name: user.name,
   email: user.email,
-  role: user.role,
   status: user.status
 });
 
 export const register = async (request, response) => {
-  const { name, email, password, role } = request.body;
+  const { name, email, password } = request.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
@@ -23,11 +22,10 @@ export const register = async (request, response) => {
   const user = await User.create({
     name,
     email,
-    password,
-    role
+    password
   });
 
-  const token = generateToken(user._id, user.role);
+  const token = generateToken(user._id);
 
   sendResponse(response, StatusCodes.CREATED, "Account created successfully", {
     token,
@@ -48,7 +46,7 @@ export const login = async (request, response) => {
     throw new AppError("Invalid email or password", StatusCodes.UNAUTHORIZED);
   }
 
-  const token = generateToken(user._id, user.role);
+  const token = generateToken(user._id);
 
   sendResponse(response, StatusCodes.OK, "Login successful", {
     token,

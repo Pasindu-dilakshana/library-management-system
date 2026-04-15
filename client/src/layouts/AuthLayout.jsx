@@ -9,14 +9,14 @@ export function AuthLayout() {
           <section className="hidden flex-col justify-between bg-slate-950 px-10 py-12 text-white lg:flex">
             <div>
               <div className="inline-flex rounded-full border border-white/20 px-4 py-2 text-sm text-teal-200">
-                Production-ready admin experience
+                Production-ready library workspace
               </div>
               <h1 className="mt-8 text-5xl font-semibold leading-tight">
                 Modern Library Management for teams that need clarity.
               </h1>
               <p className="mt-6 max-w-lg text-base text-slate-300">
-                Manage books, members, borrowing flows, reports, and audit
-                activity from one clean dashboard.
+                Manage books, borrowers, lending flows, reports, and activity
+                from one clean dashboard.
               </p>
             </div>
 

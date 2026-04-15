@@ -3,7 +3,7 @@ import {
   getMemberProfile,
   getMembers
 } from "../controllers/member.controller.js";
-import { authenticate, authorize } from "../middleware/auth.middleware.js";
+import { authenticate } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
@@ -22,7 +22,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.use(authenticate, authorize("admin"));
+router.use(authenticate);
 router.get("/", getMembers);
 router.get("/:memberId", getMemberProfile);
 

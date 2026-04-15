@@ -32,7 +32,7 @@ export function LoginPage() {
         </p>
         <h2 className="mt-3 text-3xl font-semibold">Sign in to continue</h2>
         <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          Use your library admin or member account.
+          Use your library account credentials.
         </p>
       </div>
 

@@ -5,7 +5,7 @@ import {
   getBooks,
   updateBook
 } from "../controllers/book.controller.js";
-import { authenticate, authorize } from "../middleware/auth.middleware.js";
+import { authenticate } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
@@ -36,8 +36,8 @@ const router = Router();
  */
 router.use(authenticate);
 router.get("/", getBooks);
-router.post("/", authorize("admin"), createBook);
-router.put("/:bookId", authorize("admin"), updateBook);
-router.delete("/:bookId", authorize("admin"), deleteBook);
+router.post("/", createBook);
+router.put("/:bookId", updateBook);
+router.delete("/:bookId", deleteBook);
 
 export default router;
