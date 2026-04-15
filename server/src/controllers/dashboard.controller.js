@@ -8,7 +8,7 @@ export const getDashboardSummary = async (_request, response) => {
   const [totalBooks, totalMembers, borrowedBooks, recentTransactions] =
     await Promise.all([
       Book.countDocuments(),
-      User.countDocuments({ role: "member" }),
+      User.countDocuments(),
       Transaction.countDocuments({ status: { $in: ["issued", "overdue"] } }),
       Transaction.find()
         .populate("book", "title")

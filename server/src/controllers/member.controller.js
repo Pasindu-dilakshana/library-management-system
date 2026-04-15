@@ -4,7 +4,7 @@ import { User } from "../models/User.js";
 import { sendResponse } from "../utils/api-response.js";
 
 export const getMembers = async (_request, response) => {
-  const members = await User.find({ role: "member" }).sort({ createdAt: -1 });
+  const members = await User.find().sort({ createdAt: -1 });
   sendResponse(response, StatusCodes.OK, "Members fetched successfully", {
     members
   });
